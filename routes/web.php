@@ -17,7 +17,26 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
-Route::get('/praktikum-laravel', function () {
-    return view('praktikum2.index');
-    });
-    
+
+/*Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/create', function () {
+    return view('create');
+});
+
+Route::get('/edit', function () {
+    return view('edit');
+});*/
+
+
+Route::get('/', 'App\Http\Controllers\PagesController@home');
+Route::get('/about', 'App\Http\Controllers\PagesController@about');
+
+Route::get('/mahasiswa', 'App\Http\Controllers\MahasiswaController@index');
+Route::get('/mahasiswa/create', 'App\Http\Controllers\MahasiswaController@create');
+Route::get('/mahasiswa/{mahasiswa}', 'App\Http\Controllers\MahasiswaController@show');
+Route::post('/mahasiswa', 'App\Http\Controllers\MahasiswaController@store');
+
+
